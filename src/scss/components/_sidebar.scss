@@ -1,0 +1,208 @@
+#sidebar {
+    @include box-shadow($box-shadow);
+    background: #fff;
+    height: 100vh;
+    height: 100vh;
+    left: 0;
+    position: relative;
+    top: 0;
+    transition: all 0.3s;
+    width: 300px;
+    z-index: 998;
+
+    &.active {
+        left: -28px;
+        width: 50px;
+
+        .container *,
+        .sidebar-header {
+            display: none;
+        }
+
+        .sidebar-tab {
+            #nav-icon {
+                span {
+                    &:nth-child(1) {
+                        left: 25%;
+                        top: 35%;
+                        transform: rotate(0deg);
+                        width: 20px;
+                    }
+
+                    &:nth-child(2) {
+                        left: 25%;
+                        opacity: 1;
+                        transform-origin: left center;
+                        width: 20px;
+                    }
+
+                    &:nth-child(3) {
+                        left: 25%;
+                        top: 65%;
+                        transform: rotate(0deg);
+                        width: 20px;
+                    }
+                }
+            }
+        }
+    }
+
+    nav {
+        margin: 6rem 0 0 6rem;
+
+        ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+
+            li {
+                margin-bottom: 4rem;
+
+                a {
+                    color: $black;
+                    font-size: 1.8rem;
+                    font-weight: 700;
+                    text-decoration: none;
+                }
+            }
+        }
+    }
+
+    .container {
+        background: #fff;
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+
+        p {
+            margin-left: 6rem;
+        }
+    }
+
+    .helpers {
+        list-style: none;
+        margin: auto 0 2rem 6rem;
+        padding: 0;
+
+        li {
+            margin-bottom: 1.4rem;
+
+            &.settings {
+                a:before {
+                    background-image: url(/src/imgs/icon-cog.svg);
+                }
+            }
+
+            &.help {
+                a:before {
+                    background-image: url(/src/imgs/icon-help.svg);
+                }
+            }
+
+            a {
+                color: $black;
+                display: inline-block;
+                padding: .5rem 0 .5rem 1.7rem;
+                position: relative;
+                text-decoration: none;
+
+                &:before {
+                    background-position: center;
+                    background-repeat: no-repeat;
+                    background-size: contain;
+                    content: '';
+                    height: 1.8rem;
+                    left: -.8rem;
+                    position: absolute;
+                    top: 50%;
+                    transform: translateY(-50%);
+                    width: 1.8rem;
+                }
+            }
+        }
+    }
+
+    .sidebar-header {
+        align-items: center;
+        border-bottom: 2px $lightgrey solid;
+        display: flex;
+        justify-content: center;
+        margin-bottom: 1.7rem;
+        max-height: 115px;
+        min-height: 115px;
+        padding: 20px 0;
+        text-align: center;
+
+        img {
+            max-height: 70px;
+        }
+    }
+
+    .sidebar-tab {
+        background: #fff;
+        border-top-right-radius: 100px;
+        border-bottom-right-radius: 100px;
+        border: 0;
+        cursor: pointer;
+        height: 44px;
+        width: 41px;
+        position: absolute;
+        top: calc(113px - 22px);
+        right: -22px;
+
+        &-shadow {
+            @include box-shadow($box-shadow-full);
+            background: #fff;
+            border-radius: 50%;
+            display: block;
+            height: 44px;
+            position: absolute;
+            top: calc(113px - 22px);
+            right: -22px;
+            width: 41px;
+            z-index: -1;
+        }
+
+        #nav-icon {
+            width: 40px;
+            height: 45px;
+            position: relative;
+            transform: rotate(0deg);
+            transition: .5s ease-in-out, opacity 0s;
+            cursor: pointer;
+
+            span {
+                display: block;
+                position: absolute;
+                height: 1px;
+                width: 12px;
+                background: $black;
+                opacity: 1;
+                left: 0;
+                transform: rotate(0deg);
+                transition: .25s ease-in-out;
+
+                &:nth-child(1) {
+                    left: 17px;
+                    top: 50%;
+                    transform-origin: left center;
+                    transform: rotate(-45deg);
+                }
+
+                &:nth-child(2) {
+                    left: -50%;
+                    opacity: 0;
+                    top: 50%;
+                    width: 0;
+                }
+
+                &:nth-child(3) {
+                    left: 17px;
+                    top: 50%;
+                    transform-origin: left center;
+                    transform: rotate(45deg);
+                }
+            }
+        }
+    }
+}

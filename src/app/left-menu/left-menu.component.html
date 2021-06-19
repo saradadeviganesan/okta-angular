@@ -1,0 +1,64 @@
+<div class="wrapper">
+  <aside id="sidebar" [ngClass]="{'active':!sideBarToggle}">
+    <div class="container">
+      <div class="sidebar-header">
+        <img src="assets/logos/logo-earthwake.jpg" alt="Earthwake logo">
+      </div>
+
+      <p>Welcome {{userName}}</p>
+
+      <nav>
+        <ul>
+          <li>
+            <a href="javascript:" (click)="setSection('Courses')">Courses</a>
+          </li>
+          <li>
+            <a href="javascript:" (click)="setSection('Reports')">Reports</a>
+          </li>
+          <li>
+            <a href="javascript:" (click)="setSection('Analytics')">Analytics</a>
+          </li>
+          <li>
+            <a href="javascript:" (click)="setSection('Benchmarking')">Benchmarking</a>
+          </li>
+          <li>
+            <a href="javascript:" (click)="setSection('Data')">Data</a>
+          </li>
+          <li>
+            <a href="javascript:" (click)="setSection('Mapping')">Mapping</a>
+          </li>
+        </ul>
+      </nav>
+
+      <ul class="helpers">
+        <li class="settings">
+          <a href="javascript:" (click)="setSection('Settings')">Account settings</a>
+        </li>
+        <li class="help">
+          <a href="https://www.esgtech.co/contact">ESGTech Help</a>
+        </li>
+        <li class="logout">
+          <a href="#" (click)="logout()">Logout</a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="sidebar-tab" (click)="setToggle()">
+      <div id="nav-icon">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+    <div class="sidebar-tab-shadow"></div>
+  </aside>
+
+  <main id="content">
+    <section>
+      <div class="container tempholder" *ngIf="sectionName !== 'Courses'">
+        <h1 class="text-center">{{ sectionName }}</h1>
+      </div>
+      <app-courses *ngIf="sectionName === 'Courses'"></app-courses>
+    </section>
+  </main>
+</div>
